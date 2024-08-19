@@ -10,7 +10,54 @@
 }
 body {
   width: 100%;
-  max-width: 90rem;
+  padding: 0;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  background-color: rgb(37, 34, 31);
+}
+
+header {
+  background-color: transparent;
+  color: rgb(223, 159, 41);
+  padding: 10px 0;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo h1 {
+  font-size: 24px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li a {
+  color: rgb(223, 159, 41);
+  text-decoration: none;
+  font-size: 16px;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+main {
+  width: 100%;
+  max-width: 80rem;
   font-family: "Montserrat", sans-serif;
   display: flex;
   height: 100vh;
@@ -20,8 +67,8 @@ body {
 
 .sidebar {
   width: 200px;
-  background-color: #00695c;
-  color: white;
+  background-color: rgb(32, 29, 26);
+  color: rgb(223, 159, 41);
   padding: 15px;
   display: flex;
   flex-direction: column;
@@ -29,8 +76,9 @@ body {
 
 .sidebar-option {
   cursor: pointer;
-  padding: 10px 0;
-  margin: 5px 0;
+  padding: 1rem 0;
+  margin: 0.25rem 0;
+  text-transform: uppercase;
 }
 
 .sidebar-option:hover {
@@ -40,15 +88,15 @@ body {
 
 .main-content {
   flex-grow: 1;
-  padding: 2.5rem;
-  background-color: white;
+  padding: 0.5rem;
+  background-color: transparent;
 }
 
 .form-container {
   display: none;
   width: 100%;
   max-width: 35rem;
-  background-color: transparent;
+  background-color: rgb(32, 29, 26);
   padding: 2.5rem;
   border-radius: 5px;
   margin: auto;
@@ -67,13 +115,13 @@ body {
   height: 2.5rem;
   padding: 0.75rem;
   margin-bottom: 1rem;
-  background-color: transparent;
+  background-color: rgb(207, 201, 195);
   border: 1px solid #ccc;
 }
 
 .form-container button {
   display: block;
-  background-color: #00695c;
+  background-color: rgb(212, 136, 14);
   font: inherit;
   border: none;
   color: white;
@@ -86,7 +134,7 @@ body {
 }
 
 .form-container button:hover {
-  background-color: #01453d;
+  background-color: rgb(223, 159, 41);
 }
 
 .table-container {
@@ -103,17 +151,18 @@ table {
 table,
 th,
 td {
-  border: 1px solid #ccc;
+  border: 1px solid rgb(223, 159, 41);
 }
 
 th,
 td {
   padding: 10px;
   text-align: left;
+  color: rgb(207, 201, 195);
 }
 
 th {
-  background-color: #f2f2f2;
+  background-color: rgb(32, 29, 26);
 }
 
 .find-user-container {
@@ -125,14 +174,17 @@ th {
 .find-user-container input {
   font: inherit;
   flex: 1;
+  color: #4a4a4a;
   padding: 8px;
   font-size: 16px;
+  background-color: rgb(207, 201, 195);
+  border: 1px solid #ccc;
 }
 
 .find-user-container button {
   font: inherit;
-  background-color: #00695c;
-  border: 1px solid #00695c;
+  background-color: rgb(212, 136, 14);
+  border: 1px solid rgb(212, 136, 14);
   text-transform: uppercase;
   color: white;
   padding: 8px 16px;
@@ -141,20 +193,24 @@ th {
 }
 
 .user-information {
+  width: 50%;
+  margin: auto;
   margin-top: 1rem;
+  border-radius: 8px;
   display: none;
-  border: 1px solid #4a4a4a;
+  border: 1px solid rgb(212, 136, 14);
   padding: 0.75rem;
 }
 
 .user-information p {
   text-transform: uppercase;
+  color: rgb(207, 201, 195);
 }
 
 #delete-user {
   font: inherit;
-  background-color: #00695c;
-  border: 1px solid #00695c;
+  background-color: rgb(212, 136, 14);
+  border: 1px solid rgb(212, 136, 14);
   text-transform: uppercase;
   color: white;
   padding: 8px 16px;
@@ -165,9 +221,9 @@ th {
 #edit-user {
   font: inherit;
   background-color: transparent;
-  border: 1px solid #00695c;
+  border: 1px solid rgb(212, 136, 14);
   text-transform: uppercase;
-  color: #00695c;
+  color: rgb(212, 136, 14);
   padding: 8px 16px;
   font-size: 16px;
   cursor: pointer;

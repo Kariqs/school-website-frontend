@@ -13,51 +13,71 @@
 </head>
 
 <body>
-    <div class="sidebar">
-        <p class="sidebar-option" onclick="showForm()">Add User</p>
-        <p class="sidebar-option" onclick="showTeachers()">All Teachers</p>
-        <p class="sidebar-option" onclick="showStudents()">All Students</p>
-        <p class="sidebar-option" onclick="findUser()">Find User</p>
-    </div>
-
-    <div class="main-content">
-        <div class="intro-content" id="intro">
-            <p>Hello, Welcome Back.<br>What do you want to do today?</p>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>School Name</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#login">Login</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#school">School</a></li>
+                </ul>
+            </nav>
         </div>
-        <div class="form-container" id="addUserForm">
-            <h2>Add User</h2>
-            <form>
-                <input type="text" id="firstname" name="firstname" placeholder="First Name" required>
-                <input type="text" id="middlename" name="middlename" placeholder="Middle Name">
-                <input type="text" id="surname" name="surname" placeholder="Surname" required>
-                <input type="text" id="idNumber" name="idNumber" placeholder="Identification Number" required>
-                <select id="userType" name="userType" required>
-                    <option value="" disabled selected>Select Type of User</option>
-                    <option value="teacher">Teacher</option>
-                    <option value="student">Student</option>
-                </select>
-                <button type="button" onclick="addUser()">Add User</button>
-            </form>
+    </header>
+
+
+    <main>
+
+        <div class="sidebar">
+            <p class="sidebar-option" onclick="showForm()">Register User</p>
+            <p class="sidebar-option" onclick="showTeachers()">View Teachers</p>
+            <p class="sidebar-option" onclick="showStudents()">View Students</p>
+            <p class="sidebar-option" onclick="findUser()">Serch User</p>
         </div>
 
-        <div class="table-container" id="userTableContainer">
+        <div class="main-content">
+            <div class="intro-content" id="intro">
+                <p>Hello, Welcome Back.<br>What do you want to do today?</p>
+            </div>
+            <div class="form-container" id="addUserForm">
+                <h2>Register New User</h2>
+                <form>
+                    <input type="text" id="firstname" name="firstname" placeholder="First Name" required>
+                    <input type="text" id="middlename" name="middlename" placeholder="Middle Name">
+                    <input type="text" id="surname" name="surname" placeholder="Surname" required>
+                    <input type="text" id="idNumber" name="idNumber" placeholder="Identification Number" required>
+                    <select id="userType" name="userType" required>
+                        <option value="" disabled selected>Select Type of User</option>
+                        <option value="teacher">Teacher</option>
+                        <option value="student">Student</option>
+                    </select>
+                    <button type="button" onclick="addUser()">Add User</button>
+                </form>
+            </div>
 
+            <div class="table-container" id="userTableContainer">
+
+            </div>
+
+            <div class="find-user-container" id="findUserContainer" style="display: none;">
+                <input type="text" id="findUserId" placeholder="Enter User ID">
+                <button onclick="findUserById()">Find User</button>
+            </div>
+            <div class="user-information" id="userInfo">
+                <p id="user-name"></p>
+                <p id="user-id"></p>
+                <p id="user-type"></p>
+                <button id="delete-user" onclick="deleteUser()">Delete</button>
+                <button id="edit-user">Edit</button>
+            </div>
         </div>
 
-        <div class="find-user-container" id="findUserContainer" style="display: none;">
-            <input type="text" id="findUserId" placeholder="Enter User ID">
-            <button onclick="findUserById()">Find User</button>
-        </div>
-        <div class="user-information" id="userInfo">
-            <p id="user-name"></p>
-            <p id="user-id"></p>
-            <p id="user-type"></p>
-            <button id="delete-user" onclick="deleteUser()">Delete</button>
-            <button id="edit-user">Edit</button>
-        </div>
-    </div>
+        <script src="admin.js"></script>
+    </main>
 
-    <script src="admin.js"></script>
 </body>
 
 </html>
