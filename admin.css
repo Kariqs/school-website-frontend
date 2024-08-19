@@ -1,0 +1,174 @@
+* {
+  box-sizing: border-box;
+}
+
+.intro-content {
+  text-align: center;
+  text-transform: uppercase;
+  margin: 10rem auto;
+  font-size: 3rem;
+}
+body {
+  width: 100%;
+  max-width: 90rem;
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  height: 100vh;
+  margin: auto;
+  padding: 1rem;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #00695c;
+  color: white;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-option {
+  cursor: pointer;
+  padding: 10px 0;
+  margin: 5px 0;
+}
+
+.sidebar-option:hover {
+  padding-left: 10px;
+  transition: padding-left 0.3s ease;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 2.5rem;
+  background-color: white;
+}
+
+.form-container {
+  display: none;
+  width: 100%;
+  max-width: 35rem;
+  background-color: transparent;
+  padding: 2.5rem;
+  border-radius: 5px;
+  margin: auto;
+}
+
+.form-container h2 {
+  color: #4a4a4a;
+  text-align: center;
+}
+
+.form-container input,
+.form-container select {
+  width: 100%;
+  font: inherit;
+  color: #4a4a4a;
+  height: 2.5rem;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  background-color: transparent;
+  border: 1px solid #ccc;
+}
+
+.form-container button {
+  display: block;
+  background-color: #00695c;
+  font: inherit;
+  border: none;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  margin: auto;
+  width: 60%;
+  font-size: 16pxrem;
+  text-transform: uppercase;
+}
+
+.form-container button:hover {
+  background-color: #01453d;
+}
+
+.table-container {
+  display: none;
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table,
+th,
+td {
+  border: 1px solid #ccc;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.find-user-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.find-user-container input {
+  font: inherit;
+  flex: 1;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.find-user-container button {
+  font: inherit;
+  background-color: #00695c;
+  border: 1px solid #00695c;
+  text-transform: uppercase;
+  color: white;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.user-information {
+  margin-top: 1rem;
+  display: none;
+  border: 1px solid #4a4a4a;
+  padding: 0.75rem;
+}
+
+.user-information p {
+  text-transform: uppercase;
+}
+
+#delete-user {
+  font: inherit;
+  background-color: #00695c;
+  border: 1px solid #00695c;
+  text-transform: uppercase;
+  color: white;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#edit-user {
+  font: inherit;
+  background-color: transparent;
+  border: 1px solid #00695c;
+  text-transform: uppercase;
+  color: #00695c;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}

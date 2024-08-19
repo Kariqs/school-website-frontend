@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+    <div class="sidebar">
+        <p class="sidebar-option" onclick="showForm()">Add User</p>
+        <p class="sidebar-option" onclick="showTeachers()">All Teachers</p>
+        <p class="sidebar-option" onclick="showStudents()">All Students</p>
+        <p class="sidebar-option" onclick="findUser()">Find User</p>
+    </div>
+
+    <div class="main-content">
+        <div class="intro-content" id="intro">
+            <p>Hello, Welcome Back.<br>What do you want to do today?</p>
+        </div>
+        <div class="form-container" id="addUserForm">
+            <h2>Add User</h2>
+            <form>
+                <input type="text" id="firstname" name="firstname" placeholder="First Name" required>
+                <input type="text" id="middlename" name="middlename" placeholder="Middle Name">
+                <input type="text" id="surname" name="surname" placeholder="Surname" required>
+                <input type="text" id="idNumber" name="idNumber" placeholder="Identification Number" required>
+                <select id="userType" name="userType" required>
+                    <option value="" disabled selected>Select Type of User</option>
+                    <option value="teacher">Teacher</option>
+                    <option value="student">Student</option>
+                </select>
+                <button type="button" onclick="addUser()">Add User</button>
+            </form>
+        </div>
+
+        <div class="table-container" id="userTableContainer">
+
+        </div>
+
+        <div class="find-user-container" id="findUserContainer" style="display: none;">
+            <input type="text" id="findUserId" placeholder="Enter User ID">
+            <button onclick="findUserById()">Find User</button>
+        </div>
+        <div class="user-information" id="userInfo">
+            <p id="user-name"></p>
+            <p id="user-id"></p>
+            <p id="user-type"></p>
+            <button id="delete-user" onclick="deleteUser()">Delete</button>
+            <button id="edit-user">Edit</button>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+
+</html>
