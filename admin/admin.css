@@ -56,6 +56,13 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 
+hr {
+  width: 100%;
+  max-width: 80rem;
+  padding: 0;
+  color: rgb(223, 159, 41);
+}
+
 main {
   width: 100%;
   max-width: 80rem;
