@@ -37,7 +37,7 @@ async function addUser() {
   };
 
   try {
-    const response = await fetch("http://127.0.0.1:8080/admin/create-user", {
+    const response = await fetch("https://school-website-api-one.vercel.app/admin/create-user", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
