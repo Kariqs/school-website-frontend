@@ -179,7 +179,7 @@ async function findUserById() {
       document.getElementById("findUserId").value = "";
     } else {
       console.error("Error fetching user:", response.statusText);
-      errorMessage("User not found", "error-display");
+      errorMessage("User with that ID not found", "error-display");
     }
   } catch (error) {
     console.error("Network error:", error);
