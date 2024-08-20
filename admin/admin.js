@@ -69,7 +69,7 @@ async function addUser() {
 //fetch students or teachers and show them on a table.
 async function fetchAndShowTeachers() {
   try {
-    const response = await fetch("http://127.0.0.1:8080/admin/get-teachers", {
+    const response = await fetch("https://school-website-api-one.vercel.app/admin/get-teachers", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -89,7 +89,7 @@ async function fetchAndShowTeachers() {
 
 async function fetchAndShowStudents() {
   try {
-    const response = await fetch("http://127.0.0.1:8080/admin/get-students", {
+    const response = await fetch("https://school-website-api-one.vercel.app/admin/get-students", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -154,7 +154,7 @@ async function findUserById() {
 
   try {
     const response = await fetch(
-      `http://127.0.0.1:8080/admin/get-user/${userId}`,
+      `https://school-website-api-one.vercel.app/admin/get-user/${userId}`,
       {
         method: "GET",
         headers: {
@@ -194,7 +194,7 @@ async function deleteUser() {
       .textContent.split(":")[1]
       .trim();
     const response = await fetch(
-      `http://127.0.0.1:8080/admin/delete-user/${userId}`,
+      `https://school-website-api-one.vercel.app/admin/delete-user/${userId}`,
       {
         method: "DELETE",
         headers: {
