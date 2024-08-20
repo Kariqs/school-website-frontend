@@ -37,28 +37,26 @@ async function addUser() {
   };
 
   try {
-    const response = await fetch("https://school-website-api-one.vercel.app/admin/create-user", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-    });
+    const response = await fetch(
+      "https://school-website-api-one.vercel.app/admin/create-user",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      }
+    );
 
     if (response.ok) {
       const result = await response.json();
-      console.log("User created successfully:", result);
-      document.getElementById("firstname").value = "";
-      document.getElementById("middlename").value = "";
-      document.getElementById("surname").value = "";
-      document.getElementById("userType").value = "";
-      document.getElementById("idNumber").value = "";
+      errorMessage(result.message, "success-display");
+      clearInputs();
     } else if (response.status === 409) {
+      errorMessage("User with this Id already exist", "error-display");
       console.error("Conflict error: User already exists.");
-      alert(
-        "A user with this ID number already exists. Please try a different ID number."
-      );
     } else {
+      errorMessage("User was not created", "error-display");
       console.error("Error creating user:", response.statusText);
     }
   } catch (error) {
@@ -69,12 +67,15 @@ async function addUser() {
 //fetch students or teachers and show them on a table.
 async function fetchAndShowTeachers() {
   try {
-    const response = await fetch("https://school-website-api-one.vercel.app/admin/get-teachers", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      "https://school-website-api-one.vercel.app/admin/get-teachers",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     if (response.ok) {
       const teachers = await response.json();
@@ -89,12 +90,15 @@ async function fetchAndShowTeachers() {
 
 async function fetchAndShowStudents() {
   try {
-    const response = await fetch("https://school-website-api-one.vercel.app/admin/get-students", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      "https://school-website-api-one.vercel.app/admin/get-students",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     if (response.ok) {
       const students = await response.json();
@@ -109,7 +113,7 @@ async function fetchAndShowStudents() {
 
 function displayUsers(users, userType) {
   if (users.length === 0) {
-    alert(`No ${userType.toLowerCase()} found.`);
+    errorMessage(`No ${userType.toLowerCase()} found.`, "error-display");
     return;
   }
 
@@ -165,21 +169,17 @@ async function findUserById() {
 
     if (response.ok) {
       const user = await response.json();
-      if (user) {
-        document.getElementById("userInfo").style.display = "block";
-        const name = `${user.firstname} ${user.middlename} ${user.surname}`;
-        document.getElementById("user-name").textContent = "NAME: " + name;
-        document.getElementById("user-id").textContent =
-          "ID NUMBER: " + user.idnumber;
-        document.getElementById("user-type").textContent =
-          "USER TYPE: " + user.usertype;
-        document.getElementById("findUserId").value = "";
-      } else {
-        alert("User not found");
-      }
+      document.getElementById("userInfo").style.display = "block";
+      const name = `${user.firstname} ${user.middlename} ${user.surname}`;
+      document.getElementById("user-name").textContent = "NAME: " + name;
+      document.getElementById("user-id").textContent =
+        "ID NUMBER: " + user.idnumber;
+      document.getElementById("user-type").textContent =
+        "USER TYPE: " + user.usertype;
+      document.getElementById("findUserId").value = "";
     } else {
       console.error("Error fetching user:", response.statusText);
-      alert("User not found or error occurred");
+      errorMessage("User not found", "error-display");
     }
   } catch (error) {
     console.error("Network error:", error);
@@ -204,11 +204,29 @@ async function deleteUser() {
     );
     if (response.ok) {
       document.getElementById("userInfo").remove();
-      alert("User deleted.");
+      errorMessage("User deleted.", "success-display");
     } else {
-      alert("User does not exist in the database.");
+      errorMessage("User does not exist", "error-display");
     }
   } catch (err) {
     console.log("An error occured: " + err);
   }
+}
+
+function errorMessage(message, addClass) {
+  document.getElementById("error").style.display = "block";
+  document.getElementById("error").textContent = message;
+  document.getElementById("error").classList.add(addClass);
+  setTimeout(() => {
+    document.getElementById("error").style.display = "none";
+    document.getElementById("error").classList.remove(addClass);
+  }, 5000);
+}
+
+function clearInputs() {
+  document.getElementById("firstname").value = "";
+  document.getElementById("middlename").value = "";
+  document.getElementById("surname").value = "";
+  document.getElementById("userType").value = "";
+  document.getElementById("idNumber").value = "";
 }
