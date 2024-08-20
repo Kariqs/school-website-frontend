@@ -66,6 +66,7 @@ async function addUser() {
 
 //fetch students or teachers and show them on a table.
 async function fetchAndShowTeachers() {
+  showLoading();
   try {
     const response = await fetch(
       "https://school-website-api-one.vercel.app/admin/get-teachers",
@@ -85,10 +86,13 @@ async function fetchAndShowTeachers() {
     }
   } catch (error) {
     console.error("Network error:", error);
+  } finally {
+    hideLoading();
   }
 }
 
 async function fetchAndShowStudents() {
+  showLoading();
   try {
     const response = await fetch(
       "https://school-website-api-one.vercel.app/admin/get-students",
@@ -108,6 +112,8 @@ async function fetchAndShowStudents() {
     }
   } catch (error) {
     console.error("Network error:", error);
+  } finally {
+    hideLoading();
   }
 }
 
@@ -155,7 +161,7 @@ async function findUserById() {
     alert("Please enter a User ID");
     return;
   }
-
+  showLoading();
   try {
     const response = await fetch(
       `https://school-website-api-one.vercel.app/admin/get-user/${userId}`,
@@ -184,6 +190,8 @@ async function findUserById() {
   } catch (error) {
     console.error("Network error:", error);
     alert("Network error occurred");
+  } finally {
+    hideLoading();
   }
 }
 
@@ -229,4 +237,15 @@ function clearInputs() {
   document.getElementById("surname").value = "";
   document.getElementById("userType").value = "";
   document.getElementById("idNumber").value = "";
+}
+
+function showLoading() {
+  document.getElementById("loadingIndicator").style.display = "block";
+  document.getElementById("userTableContainer").style.display = "none";
+  document.getElementById("userInfo").style.display = "none";
+  document.getElementById("intro").style.display = "none";
+}
+
+function hideLoading() {
+  document.getElementById("loadingIndicator").style.display = "none";
 }
